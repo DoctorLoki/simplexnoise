@@ -104,26 +104,26 @@ var r, g, b float64
 		r = 0.1 + (maximum + value)
 		g = 0.1 + (maximum + value)
 		b = 0.5 + (maximum + value)
-	} else if value < 0.200001 {
+	} else if value < 0.201 {
 		// Yellow sand
-		r = 6.0 * (0.1 - value)
-		g = 6.0 * (0.1 - value)
-		b = 3.0 * (0.1 - value)
+		r = 500 * (0.202 - value)
+		g = 500 * (0.202 - value)
+		b = 250 * (0.202 - value)
 	} else if value < 0.40 {
 		// Grasslands
 		maximum := 0.40 + 0.20
 		r = 1.2 * (maximum - value)
-		g = 1.8 * (maximum - value)
+		g = 1.6 * (maximum - value)
 		b = 0.8 * (maximum - value)
 	} else if value < 0.60 {
 		// Greenery
-		maximum := 0.60 + 0.25
+		maximum := 0.60 + 0.30
 		r = 0.2 * (maximum - value)
-		g = 0.9 * (maximum - value)
+		g = 0.8 * (maximum - value)
 		b = 0.1 * (maximum - value)
-	} else if value < 0.85 {
+	} else if value < 0.90 {
 		// Mountains
-		maximum := 0.85
+		maximum := 0.90
 		minimum := 0.10
 		diff := maximum - minimum
 		r = 0.8 / diff * (value - minimum)
