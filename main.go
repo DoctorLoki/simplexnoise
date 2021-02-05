@@ -79,7 +79,7 @@ func renderTile(coords TileCoords) image.Image {
 		for x := 0; x < tileSize; x++ {
 			c := Vector{
 				extent.Min.X + (extent.Max.X-extent.Min.X)*float64(x)/tileSize,
-				extent.Min.Y + (extent.Max.X-extent.Min.X)*float64(y)/tileSize,
+				extent.Min.Y + (extent.Max.Y-extent.Min.Y)*float64(y)/tileSize,
 			}
 			value := simplexTorus(c, coords)
 
