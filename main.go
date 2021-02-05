@@ -109,25 +109,31 @@ var r, g, b float64
 		r = 6.0 * (0.1 - value)
 		g = 6.0 * (0.1 - value)
 		b = 3.0 * (0.1 - value)
+	} else if value < 0.40 {
+		// Grasslands
+		maximum := 0.40 + 0.20
+		r = 1.2 * (maximum - value)
+		g = 1.8 * (maximum - value)
+		b = 0.8 * (maximum - value)
 	} else if value < 0.60 {
 		// Greenery
 		maximum := 0.60 + 0.25
 		r = 0.2 * (maximum - value)
 		g = 0.9 * (maximum - value)
 		b = 0.1 * (maximum - value)
-	} else if value < 0.75 {
+	} else if value < 0.85 {
 		// Mountains
-		maximum := 0.75
+		maximum := 0.85
 		minimum := 0.10
 		diff := maximum - minimum
 		r = 0.8 / diff * (value - minimum)
 		g = 0.7 / diff * (value - minimum)
 		b = 0.6 / diff * (value - minimum)
-	} else if value < 1.0 {
+	} else if value < 1.2 {
 		// Pale snow
-		r = 1.0 * value
-		g = 1.0 * value
-		b = 1.0 * value
+		r = 0.8 * value
+		g = 0.8 * value
+		b = 0.8 * value
 	} else {
 		// White snow
 		r = 1.0
