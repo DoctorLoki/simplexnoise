@@ -76,11 +76,10 @@ func renderTile(coords TileCoords) image.Image {
 	extent := tileExtent(coords)
 	tile := image.NewRGBA(image.Rect(0, 0, tileSize, tileSize))
 	for y := 0; y < tileSize; y++ {
+		Y := extent.Min.Y + (extent.Max.Y-extent.Min.Y)*float64(y)/tileSize
 		for x := 0; x < tileSize; x++ {
-			c := Vector{
-				extent.Min.X + (extent.Max.X-extent.Min.X)*float64(x)/tileSize,
-				extent.Min.Y + (extent.Max.Y-extent.Min.Y)*float64(y)/tileSize,
-			}
+			X := extent.Min.X + (extent.Max.X-extent.Min.X)*float64(x)/tileSize 
+			c := Vector{X, Y}
 			value := simplexTorus(c, coords)
 
 			// Draw the pixel.
